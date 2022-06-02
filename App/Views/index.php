@@ -1,0 +1,1 @@
+<h1><?=$this->params['helloMessage']?></h1>
