@@ -22,15 +22,19 @@ use App\App;
 use App\Controllers\Home;
 use App\Controllers\Account;
 
+session_start();
+
 //Code
 try{
     $router = new Router();
 
-    $router ->register('/', [Home::class, 'index'])
-            ->register('/about', [Home::class, 'about'])
-            ->register('/news', [Home::class, 'news'])
-            ->register('/login', [Account::class, 'login'])
-            ->register('/signup', [Account::class, 'signup']);
+    $router ->register('/',             [Home::class, 'index'])
+            ->register('/about',        [Home::class, 'about'])
+            ->register('/news',         [Home::class, 'news'])
+            ->register('/login',        [Account::class, 'login'])
+            ->register('/signup',       [Account::class, 'signup'])
+            ->register('/info/secret',  [Account::class, 'secret'])
+            ->register('/exit',         [Account::class, 'exit']);
 
     (new App($router))->run();
 
